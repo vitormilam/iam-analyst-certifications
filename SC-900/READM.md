@@ -182,4 +182,140 @@ What's Hybrid identity?
 
 
 
-## MFA (Multi Factor Authentication) PAREI EM 41:03
+## MFA (Multi Factor Authentication) 
+
+- It's all about providing 2 differents kinds of proof during authentication and this can be a mix between various factors.
+
+Something you KNOW: Password, PIN. 
++
+Something you HAVE: Phone, Security Key.
++
+Something you ARE: Fingerprint, face.
+
+- To be considered a MFA, it need at leat to be a mix of 2 or more of this.
+
+
+## Conditional Access
+
+- We allow or deny access to resources by considering certain signals.
+- It's a Microsoft EntraID feature that controls access to applications and resources based on specific conditions.
+
+What Conditional Access Checks
+- User: Who is signing in?
+- Location: Where are they signing in from?
+- Device: Is the device trusted/compliant?
+- Application: What app is being accessed?
+- Risk: Is the sign-in suspicious?
+
+Conditional Access does not equal MFA
+- Conditional Access decides when security controls are applied.
+- MFA is one of the controls that Conditional Access can enforce.
+
+
+## Entra Roles and Azure Role-Based Access (RBAC)
+
+EntraID Roles
+- They govern access and permissions in our Entra directory.
+- Also, in M365.
+
+
+Azure Role-Based Access (RBAC)
+- RBAC controls the access and permissions for Azure Resources.
+- Such as Virtual Machines, Azure functions, storage.
+
+- Both focus on the same thing, giving people authorization to interact with resources.
+- But for different Domains.
+- EntraID focus on the entraid tenant and M365.
+- RBAC focus on Azure.
+
+
+## EntraID Protection
+
+- Microsoft Entra ID Protection is a security feature that helps detect, investigate, and respond to identity-based risks.
+
+What does it do?
+- Entra ID Protection uses Microsoft security intelligence to detect risks such as: 
+  - Stolen Credentials.
+  - Password spray attacks.
+  - Sign-ins from unusual locations.
+  - Impossible Travel (login from two distant locations in a short time).
+  - Anonymous IP addresses (VPN/Tor).
+
+| Feature             | Purpose                                         |
+| ------------------- | ----------------------------------------------- |
+| Conditional Access  | Controls access based on conditions             |
+| Entra ID Protection | Detects identity risks and compromised accounts |
+
+
+## EntraID PIM (Priveleged Identity Management)
+
+- In many organizations, users may have powerful roles such as: Global Administrator, Security Administrator, User Administrator.
+- If these permissions are always active, a compromised account could cause significant damage.
+- So, PIM gives admin access only when it's needed, and only for a limited time.
+
+- Microsoft Entra ID Privileged Identity Management (PIM) is a service that enables just-in-time, time-limited, and audited access to privileged roles,
+reducing the risks associated with permanent administrator permissions.
+
+
+############################################################################################################################33
+
+
+# DOMAIN 3 (It's all about the security services that azure provides)
+
+
+## Azure DDoS Protection
+
+- Azure DDoS Protection is a service that protects Azure applications and resources from Distributed Denial-of-Service (DDoS) attacks.
+- We can simply enable DDoS protection for our public facing resources and for our Azure VNets.
+
+What's a DDoS Attack?
+- A DDoS attack happens when attackers send a massive amount of traffic to a website or application to make it unavailable.
+
+
+
+## Azure Firewall
+
+- It's a cloud-native network security service that controls and filters network traffic going in and out of Azure resources.
+- It has Network rules, Application rules, NAT rules.
+
+
+## Azure Web Application Firewall (WAF)
+
+- Is a security device that protects web applications from common web-based attacks.
+- It hepls block attacks such as:
+ - SQL injection.
+ - Cross-Site Scripting (XSS)
+ - Bot attacks
+ - Malicious web requests.
+
+
+- A normal firewall focuses on network traffic.
+- A Web Application Firewall (WAF) focus on HTTP/HTTPS web traffic and analyzes requests sent to websites.
+
+
+
+## Network Security Groups (NSGs)
+
+- Network Security Groups are used to allow or deny network traffic to Azure Resources.
+- Think of an NSG as : "A set of firewall rules for Azure Networks Resources".
+
+What's Network Segmentation?
+- Network segmentation means dividing a network into smaller, isolated sections to improve security.
+- Each segment can have different security rules.
+- This helps prevent attackers from moving freely within the network.
+
+
+
+## Azure Bastion
+
+- It`s a service that allows you to securely connect to Azure Virtual Machines (VMs) using RDP (Windows) or SSH (Linux) directly through the Azure Portal without exposing the VM to the public internet.
+
+Key Benefits
+- Secure VM Access.
+- No public IP Required.
+- Reduced Attack Surface.
+
+
+
+## Azure Key Vault (Parei em 01:08:03)
+
